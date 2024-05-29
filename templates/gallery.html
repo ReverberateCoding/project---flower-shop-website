@@ -37,7 +37,7 @@
         <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="templates/index.html">
             <span>
-              Fior
+              Flora
             </span>
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,30 +48,24 @@
             <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
               <ul class="navbar-nav  ">
                 <li class="nav-item ">
-                  <a class="nav-link" href="templates/index.html">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="{{url_for('index')}}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                  <a class="nav-link" href="templates/about.html"> About</a>
+                  <a class="nav-link" href="{{url_for('about')}}"> About</a>
                 </li>
                 <li class="nav-item active">
-                  <a class="nav-link" href="gallery.html"> Gallery </a>
+                  <a class="nav-link" href="{{url_for('gallery')}}"> Gallery </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="templates/contact.html">Contact us</a>
+                  <a class="nav-link" href="{{url_for('contact')}}">Contact us</a>
                 </li>
               </ul>
 
             </div>
             <div class="quote_btn-container ">
               <a href="">
-                Log in
-              </a>
-              <a href="">
                 <img src="static/images/cart.png" alt="">
               </a>
-              <form class="form-inline">
-                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-              </form>
             </div>
           </div>
         </nav>
@@ -97,23 +91,21 @@
             <div class="carousel-inner">
               <!-- item section -->
               {% for flower in flowers %}
+                {% if loop.index == 1 %}
                 <div class="carousel-item active">
+                {% else %}
+                <div class="carousel-item">
+                {% endif %}
                   <div class="col-lg-6 col-md-8">
                     <div class="detail_box">
-                      <h2>
-                        {{flower}}
-                      </h2>
                       <h1>
-                        Flowers shop
+                        {{flower.name}}
                       </h1>
                       <p>
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                        the
-                        industry's
-                        standard dummy text ever since
+                        {{flower}}
                       </p>
                       <div>
-                        <a href="">Buy Now</a>
+                        <a href="api/add_to_cart/{{loop.index}}">Add to cart</a>
                       </div>
                     </div>
                   </div>
