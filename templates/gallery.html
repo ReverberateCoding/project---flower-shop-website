@@ -78,58 +78,63 @@
       </div>
     </header>
     <!-- end header section -->
-  </div>
-
-
-  <!-- gallery section -->
-  <section class="gallery_section layout_padding">
-
-    <div class="heading_container justify-content-center">
-      <h2>
-        Our Gallery
-      </h2>
-    </div>
-    <div class="container">
-      <div class="img_container">
-        <div class="box-1">
-          <div class="box-1-container">
-            <div class="b-1">
-              <div class="img-box">
-                <img src="static/images/g-1.jpg" alt="">
-              </div>
-              <div class="img-box">
-                <img src="static/images/g-4.jpg" alt="">
-              </div>
-            </div>
-            <div class="b-2">
-              <div class="img-box">
-                <img src="static/images/g-2.jpg" alt="">
-              </div>
-              <div class="img-box">
-                <img src="static/images/g-5.jpg" alt="">
-              </div>
-            </div>
-          </div>
-          <div class="b-3">
-            <div class="img-box">
-              <img src="static/images/g-7.jpg" alt="">
-            </div>
-          </div>
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+      <div class="slider_number-container ">
+        <div class="number-box">
+          <span>
+            01
+          </span>
+          <hr>
+          <span>
+            02
+          </span>
         </div>
-        <div class="box-2">
-          <div class="img-box">
-            <img src="static/images/g-3.jpg" alt="">
-          </div>
-          <div class="img-box">
-            <img src="static/images/g-6.jpg" alt="">
-          </div>
-          <div class="img-box flex-grow-1">
-            <img src="static/images/g-8.jpg" alt="">
+      </div>
+      <div class="container">
+        <div class="row">
+          <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <!-- item section -->
+              {% for flower in flowers %}
+                <div class="carousel-item active">
+                  <div class="col-lg-6 col-md-8">
+                    <div class="detail_box">
+                      <h2>
+                        {{flower}}
+                      </h2>
+                      <h1>
+                        Flowers shop
+                      </h1>
+                      <p>
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                        the
+                        industry's
+                        standard dummy text ever since
+                      </p>
+                      <div>
+                        <a href="">Buy Now</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="carousel_btn-container">
+              <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="sr-only">Previous</span>
+              </a>
+              <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
           </div>
         </div>
       </div>
-  </section>
-  <!-- end gallery section -->
+
+    </section>
+    <!-- end slider section -->
+  </div>
 
 
   <!-- info section -->

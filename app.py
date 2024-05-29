@@ -8,7 +8,7 @@ def index():
 
 @app.route("/gallery")
 def gallery():
-    return render_template("gallery.html")
+    return render_template("gallery.html", flowers = ["a", "b"])
 
 @app.route("/contact")
 def contact():
