@@ -1,6 +1,14 @@
 from flask import Flask, render_template, redirect, url_for, request
 import os
 
+#Server imports
+from gevent.pywsgi import WSGIServer
+import os
+
+if os.name != "nt":
+    os.chdir(os.path.dirname(__file__))
+
+
 class Flower:
     def __init__(self, name, image_absolute_url, description, price):
         self.name = str(name)
@@ -74,4 +82,6 @@ def basket():
             basket.append(flowers[int(line)])
     return render_template("basket.html", basket=basket)
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", debug=True)
+    http_server = WSGIServer(("0.0.0.0", 2004), app)
+    http_server.serve_forever()
+    #app.run(host="0.0.0.0", debug=True)
